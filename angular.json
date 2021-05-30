@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "application-bus": {
+      "projectType": "library",
+      "root": "projects/application-bus",
+      "sourceRoot": "projects/application-bus/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/application-bus/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/application-bus/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/application-bus/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/application-bus/src/test.ts",
+            "tsConfig": "projects/application-bus/tsconfig.spec.json",
+            "karmaConfig": "projects/application-bus/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "eda"
