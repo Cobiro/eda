@@ -1,6 +1,6 @@
-import { OrchestrationStrategyFn } from '../orchestration-strategy';
-import { forkJoin, Observable, Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import {OrchestrationStrategyFn} from '../orchestration-strategy';
+import {forkJoin, Observable, Subscription} from 'rxjs';
+import {take} from 'rxjs/operators';
 import {AppEvent} from "../../application.event";
 
 export const allEventsOnceOrchestrationStrategy: OrchestrationStrategyFn = (

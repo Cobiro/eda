@@ -1,4 +1,4 @@
-import { Observable, Subscription } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {AppEvent} from "../application.event";
 
 export type OrchestrationStrategyFn = (

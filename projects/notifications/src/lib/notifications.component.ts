@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NotificationsService} from "./notifications.service";
 
 @Component({
   selector: 'lib-notifications',
   template: `
-    <p>
-      notifications works!
-    </p>
+    <mat-select *ngIf="notifications$ | async as notifications">
+      <mat-option *ngFor="let notification of notifications">{{notification.text}}</mat-option>
+    </mat-select>
   `,
   styles: [
   ]
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor() { }
+  notifications$ = this.notificationService.data$;
+
+  constructor(private notificationService: NotificationsService) { }
 
   ngOnInit(): void {
   }

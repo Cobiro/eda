@@ -1,7 +1,7 @@
-import { FirstEventStub, SecondEventStub, ThirdEventStub } from './events.stub';
-import { ReplaySubject } from 'rxjs';
+import {FirstEventStub, SecondEventStub, ThirdEventStub} from './events.stub';
+import {ReplaySubject} from 'rxjs';
+import {OrchestrationStrategyFn} from '../../orchestration-strategy';
 import Spy = jasmine.Spy;
-import { OrchestrationStrategyFn } from '../../orchestration-strategy';
 
 export const prepareStrategyTest = (
   strategy: OrchestrationStrategyFn,

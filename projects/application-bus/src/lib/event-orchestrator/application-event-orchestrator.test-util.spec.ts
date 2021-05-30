@@ -1,16 +1,14 @@
-import { Class } from '../../class';
+import {Class} from '../../class';
 import {
   APPLICATION_BUS,
-  ApplicationBus,
   ApplicationEventOrchestrator,
-  CommandBus,
   provideApplicationEventOrchestrator,
   TokenBasedApplicationEventHandlerRegistry,
 } from '@cbr/core';
-import { ClassProvider, Provider, ValueProvider } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { ApplicationBusModule } from '../application-bus.module';
-import { ApplicationBusTestBed, providerInstances } from '../utils';
+import {Provider} from '@angular/core';
+import {TestBed} from '@angular/core/testing';
+import {ApplicationBusModule} from '../application-bus.module';
+import {ApplicationBusTestBed, providerInstances} from '../utils';
 
 export const prepareApplicationEventOrchestratorTest = (
   orchestratorClass: Class<ApplicationEventOrchestrator>,

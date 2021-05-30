@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
-import { NotificationsComponent } from './notifications.component';
-
+import {NgModule} from '@angular/core';
+import {NotificationsComponent} from './notifications.component';
+import {CommonModule} from "@angular/common";
+import {BrowserModule} from "@angular/platform-browser";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -8,6 +10,7 @@ import { NotificationsComponent } from './notifications.component';
     NotificationsComponent
   ],
   imports: [
+    CommonModule, BrowserModule, MatSelectModule
   ],
   exports: [
     NotificationsComponent

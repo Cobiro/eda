@@ -1,5 +1,5 @@
-import { Class } from './class';
-import { AppEvent } from './application.event';
+import {Class} from './class';
+import {AppEvent} from './application.event';
 
 export interface ApplicationEventHandler {
   eventClass: Class<AppEvent>;

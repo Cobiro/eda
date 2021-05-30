@@ -1,6 +1,6 @@
-import { OrchestrationStrategyFn } from '../orchestration-strategy';
-import { combineLatest, Observable, Subscription } from 'rxjs';
-import { DomainEvent } from '@app.cobiro.com/core/events';
+import {OrchestrationStrategyFn} from '../orchestration-strategy';
+import {combineLatest, Observable, Subscription} from 'rxjs';
+import {DomainEvent} from '@app.cobiro.com/core/events';
 
 export const ongoingEventsOrchestrationStrategy: OrchestrationStrategyFn = (
   eventObservables: Observable<DomainEvent>[],

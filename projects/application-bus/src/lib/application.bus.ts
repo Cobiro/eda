@@ -1,9 +1,9 @@
-import { Injectable, InjectionToken } from '@angular/core';
-import { Dispatcher } from './dispatcher';
-import { Listener } from './listener';
-import { Observable, Subject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-import { AppEvent } from './application.event';
+import {Injectable, InjectionToken} from '@angular/core';
+import {Dispatcher} from './dispatcher';
+import {Listener} from './listener';
+import {Observable, Subject} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
+import {AppEvent} from './application.event';
 
 export const APPLICATION_BUS = new InjectionToken<ApplicationBus>('APPLICATION_BUS');
 

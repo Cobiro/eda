@@ -1,5 +1,5 @@
-import { Class } from '../class';
-import { OrchestrationStrategyFn } from './orchestration-strategy';
+import {Class} from '../class';
+import {OrchestrationStrategyFn} from './orchestration-strategy';
 import {AppEvent} from "../application.event";
 
 export interface ApplicationEventOrchestrator {

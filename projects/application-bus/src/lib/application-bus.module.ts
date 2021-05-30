@@ -1,6 +1,6 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { APPLICATION_BUS, SubjectBasedApplicationEventBus } from './application.bus';
-import { TokenBasedApplicationEventHandlerRegistry } from './token-based-application-event-handler.registry';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {APPLICATION_BUS, SubjectBasedApplicationEventBus} from './application.bus';
+import {TokenBasedApplicationEventHandlerRegistry} from './token-based-application-event-handler.registry';
 
 @NgModule({
   providers: [TokenBasedApplicationEventHandlerRegistry],

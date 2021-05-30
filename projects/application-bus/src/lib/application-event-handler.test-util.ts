@@ -1,8 +1,8 @@
-import { Class } from './class';
-import { TestBed } from '@angular/core/testing';
-import { ApplicationBusModule } from './application-bus.module';
-import { Provider } from '@angular/core';
-import { ApplicationBusTestBed, providerInstances } from './utils';
+import {Class} from './class';
+import {TestBed} from '@angular/core/testing';
+import {ApplicationBusModule} from './application-bus.module';
+import {Provider} from '@angular/core';
+import {ApplicationBusTestBed, providerInstances} from './utils';
 import {ApplicationEventHandler} from "./application-event.handler";
 import {provideApplicationEventHandler} from "./provide-application-event-handler";
 import {TokenBasedApplicationEventHandlerRegistry} from "./token-based-application-event-handler.registry";

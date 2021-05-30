@@ -7,11 +7,11 @@ import {
   ApplicationEventOrchestrator,
   TokenBasedApplicationEventHandlerRegistry,
 } from '@cbr/core';
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { SubjectBasedApplicationEventBus } from './application.bus';
-import { combineLatest, Observable } from 'rxjs';
-import { OrchestrationStrategyFn } from './event-orchestrator/orchestration-strategy';
-import { DomainEvent } from '@app.cobiro.com/core/events';
+import {fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {SubjectBasedApplicationEventBus} from './application.bus';
+import {combineLatest, Observable} from 'rxjs';
+import {OrchestrationStrategyFn} from './event-orchestrator/orchestration-strategy';
+import {DomainEvent} from '@app.cobiro.com/core/events';
 
 class TestEvent extends DomainEvent {}
 

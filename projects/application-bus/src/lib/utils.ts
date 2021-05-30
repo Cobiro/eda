@@ -1,5 +1,5 @@
-import { ClassProvider, Provider, ValueProvider } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import {ClassProvider, Provider, ValueProvider} from '@angular/core';
+import {TestBed} from '@angular/core/testing';
 import {ApplicationBus} from "./application.bus";
 
 export const providerInstances = (additionalProviders: Provider[] = []): Map<any, any> => {

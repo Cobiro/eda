@@ -1,6 +1,6 @@
-import { prepareStrategyTest } from './testing/prepare-strategy-test.spec';
-import { fakeAsync, tick } from '@angular/core/testing';
-import { zipEventsOrchestrationStrategy } from './zip-events.orchestration-strategy';
+import {prepareStrategyTest} from './testing/prepare-strategy-test.spec';
+import {fakeAsync, tick} from '@angular/core/testing';
+import {zipEventsOrchestrationStrategy} from './zip-events.orchestration-strategy';
 
 describe('ZipEventsOrchestrationStrategy', () => {
   it('should trigger the zipped events', fakeAsync(() => {

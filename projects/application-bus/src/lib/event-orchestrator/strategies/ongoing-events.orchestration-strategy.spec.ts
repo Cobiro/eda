@@ -1,6 +1,6 @@
-import { fakeAsync, tick } from '@angular/core/testing';
-import { prepareStrategyTest } from './testing/prepare-strategy-test.spec';
-import { ongoingEventsOrchestrationStrategy } from './ongoing-events.orchestration-strategy';
+import {fakeAsync, tick} from '@angular/core/testing';
+import {prepareStrategyTest} from './testing/prepare-strategy-test.spec';
+import {ongoingEventsOrchestrationStrategy} from './ongoing-events.orchestration-strategy';
 
 describe('OngoingEventsOrchestrationStrategy', () => {
   it('should trigger the event-orchestrator on given events', fakeAsync(() => {

@@ -1,10 +1,9 @@
-import { ErrorHandler, Inject, Injectable, Optional } from '@angular/core';
-import { APPLICATION_EVENT_HANDLER_TOKEN } from './application.handler.token';
-import { APPLICATION_BUS, ApplicationBus } from './application.bus';
-import { ApplicationEventHandler } from './application-event.handler';
-import { ApplicationEventOrchestrator } from './event-orchestrator';
-import { APPLICATION_EVENT_ORCHESTRATOR_TOKEN } from './event-orchestrator';
-import { Subscription } from 'rxjs';
+import {ErrorHandler, Inject, Injectable, Optional} from '@angular/core';
+import {APPLICATION_EVENT_HANDLER_TOKEN} from './application.handler.token';
+import {APPLICATION_BUS, ApplicationBus} from './application.bus';
+import {ApplicationEventHandler} from './application-event.handler';
+import {APPLICATION_EVENT_ORCHESTRATOR_TOKEN, ApplicationEventOrchestrator} from './event-orchestrator';
+import {Subscription} from 'rxjs';
 import {AppEvent} from "./application.event";
 
 @Injectable()

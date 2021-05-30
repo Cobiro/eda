@@ -1,4 +1,4 @@
-import { Class } from './class';
+import {Class} from './class';
 import {ApplicationEventHandler} from "./application-event.handler";
 
 export abstract class AppEvent {

@@ -1,4 +1,4 @@
-import { DomainEvent } from '@app.cobiro.com/core/events';
+import {DomainEvent} from '@app.cobiro.com/core/events';
 
 export class FirstEventStub extends DomainEvent {}
 

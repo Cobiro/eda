@@ -1,10 +1,6 @@
-import { TestBed } from '@angular/core/testing';
-import {
-  APPLICATION_BUS,
-  ApplicationBus,
-  SubjectBasedApplicationEventBus,
-} from './application.bus';
-import { APPLICATION_EVENT_HANDLER_TOKEN } from './application.handler.token';
+import {TestBed} from '@angular/core/testing';
+import {APPLICATION_BUS, ApplicationBus, SubjectBasedApplicationEventBus,} from './application.bus';
+import {APPLICATION_EVENT_HANDLER_TOKEN} from './application.handler.token';
 import {AppEvent} from "./application.event";
 
 describe('ApplicationBus', () => {
