@@ -11,6 +11,10 @@
         "dist/categories/categories",
         "dist/categories"
       ],
+      "events": [
+        "dist/events/events",
+        "dist/events"
+      ],
       "notifications": [
         "dist/notifications/notifications",
         "dist/notifications"

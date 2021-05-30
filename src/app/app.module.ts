@@ -9,6 +9,10 @@ import {ProductsModule} from "../../projects/products/src/lib/products.module";
 import {NotificationsModule} from "../../projects/notifications/src/lib/notifications.module";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
+import {ApplicationBusModule} from "../../projects/application-bus/src/lib/application-bus.module";
+import {provideApplicationEventHandler} from "../../projects/application-bus/src/lib/provide-application-event-handler";
+import {CategorySelectedEventHandler} from "../../projects/notifications/src/lib/event-handlers/category-selected.event-handler";
+import {TokenBasedApplicationEventHandlerRegistry} from "../../projects/application-bus/src/lib/token-based-application-event-handler.registry";
 
 @NgModule({
   declarations: [
@@ -22,9 +26,14 @@ import {MatCardModule} from "@angular/material/card";
     ProductsModule,
     NotificationsModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    ApplicationBusModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private registry: TokenBasedApplicationEventHandlerRegistry) {
+    this.registry.init();
+  }
+}

@@ -18,6 +18,7 @@
   "projects": {
     "eda": { "implicitDependencies": [] },
     "application-bus": { "implicitDependencies": [] },
+    "events": { "implicitDependencies": [] },
     "categories": { "implicitDependencies": [] },
     "notifications": { "implicitDependencies": [] },
     "products": { "implicitDependencies": [] },

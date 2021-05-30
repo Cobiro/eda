@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of, ReplaySubject} from "rxjs";
 
 export enum CURRENCY_SYMBOL {
   USD = '$',
@@ -12,8 +12,7 @@ export enum CURRENCY_SYMBOL {
 })
 export class SettingsService {
 
-  private selectedCurrency = new BehaviorSubject<CURRENCY_SYMBOL>(CURRENCY_SYMBOL.USD);
-  constructor() { }
+  private selectedCurrency = new ReplaySubject<CURRENCY_SYMBOL>(1);
 
   changeCurrency(currency: CURRENCY_SYMBOL): void {
     this.selectedCurrency.next(currency);

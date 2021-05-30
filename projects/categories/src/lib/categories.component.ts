@@ -1,7 +1,10 @@
-import {Component} from '@angular/core';
-import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
+import {Component, Inject} from '@angular/core';
 import {CategoriesService} from "./categories.service";
 import {MatSelectionListChange} from "@angular/material/list";
+import {Dispatcher} from "../../../application-bus/src/lib/dispatcher";
+import {AppEvent} from "../../../application-bus/src/lib/application.event";
+import {CategorySelectedEvent} from "../../../events/src/lib/category-selected.event";
+import {APPLICATION_BUS} from "../../../application-bus/src/lib/application.bus";
 
 @Component({
   selector: 'lib-categories',
@@ -11,18 +14,21 @@ import {MatSelectionListChange} from "@angular/material/list";
       <mat-list-option *ngFor="let category of categories$ | async" [value]="category.name" [matBadge]="category.productCount">{{category.name}}</mat-list-option>
     </mat-selection-list>
   `,
-  styles: [
-  ]
 })
 export class CategoriesComponent {
 
   public categories$ = this.categoryService.categories$;
 
-  constructor(private notifier: NotificationsService, private categoryService: CategoriesService) { }
+  constructor(
+    private categoryService: CategoriesService,
+    // private notifier: NotificationsService,
+    @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
+  ) { }
 
   onCategorySelected($event: MatSelectionListChange) {
     const categoryName = $event.source.selectedOptions.selected[0].value;
     this.categoryService.select(categoryName);
-    this.notifier.notify(`Selected ${categoryName}`);
+    // this.notifier.notify(`Selected ${categoryName}`);
+    this.dispatcher.dispatch(new CategorySelectedEvent(categoryName));
   }
 }

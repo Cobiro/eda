@@ -8,8 +8,6 @@ import {NotificationsService} from "./notifications.service";
       <mat-option *ngFor="let notification of notifications">{{notification.text}}</mat-option>
     </mat-select>
   `,
-  styles: [
-  ]
 })
 export class NotificationsComponent implements OnInit {
 
