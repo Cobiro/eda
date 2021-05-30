@@ -1,11 +1,11 @@
 import { OrchestrationStrategyFn } from '../orchestration-strategy';
 import { forkJoin, Observable, Subscription } from 'rxjs';
-import { DomainEvent } from '@app.cobiro.com/core/events';
 import { take } from 'rxjs/operators';
+import {AppEvent} from "../../application.event";
 
 export const allEventsOnceOrchestrationStrategy: OrchestrationStrategyFn = (
-  eventObservables: Observable<DomainEvent>[],
-  callback: (events: DomainEvent[]) => void,
+  eventObservables: Observable<AppEvent>[],
+  callback: (events: AppEvent[]) => void,
 ): Subscription => {
   return forkJoin(
     eventObservables.map(eventObservable => eventObservable.pipe(take(1))),

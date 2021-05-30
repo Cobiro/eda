@@ -6,6 +6,22 @@
       "application-bus": [
         "dist/application-bus/application-bus",
         "dist/application-bus"
+      ],
+      "categories": [
+        "dist/categories/categories",
+        "dist/categories"
+      ],
+      "notifications": [
+        "dist/notifications/notifications",
+        "dist/notifications"
+      ],
+      "products": [
+        "dist/products/products",
+        "dist/products"
+      ],
+      "settings": [
+        "dist/settings/settings",
+        "dist/settings"
       ]
     },
     "baseUrl": "./",

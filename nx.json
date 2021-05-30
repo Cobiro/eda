@@ -1,0 +1,26 @@
+{
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "nx.json": "*"
+  },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "ngx-eda",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint", "package", "prepare", "build-storybook"],
+        "strictlyOrderedTargets": ["build", "package", "prepare"]
+      }
+    }
+  },
+  "projects": {
+    "eda": { "implicitDependencies": [] },
+    "application-bus": { "implicitDependencies": [] },
+    "categories": { "implicitDependencies": [] },
+    "notifications": { "implicitDependencies": [] },
+    "products": { "implicitDependencies": [] },
+    "settings": { "implicitDependencies": [] }
+  }
+}

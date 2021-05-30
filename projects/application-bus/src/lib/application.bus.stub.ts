@@ -1,9 +1,9 @@
-import { DomainEvent } from '@app.cobiro.com/core/events';
 import { APPLICATION_BUS, ApplicationBus } from './application.bus';
 import { EMPTY } from 'rxjs';
+import {AppEvent} from "./application.event";
 
 export const APPLICATION_BUS_STUB: ApplicationBus = {
-  dispatch: (event: DomainEvent) => {},
+  dispatch: (event: AppEvent) => {},
   on: eventType => EMPTY,
 };
 
