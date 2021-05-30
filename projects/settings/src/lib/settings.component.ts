@@ -4,6 +4,7 @@ import {APPLICATION_BUS} from "../../../application-bus/src/lib/application.bus"
 import {Dispatcher} from "../../../application-bus/src/lib/dispatcher";
 import {AppEvent} from "../../../application-bus/src/lib/application.event";
 import {CurrencyChangedEvent} from "../../../events/src/lib/currency-changed.event";
+import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
 
 @Component({
   selector: 'lib-settings',
@@ -21,15 +22,15 @@ export class SettingsComponent {
 
   constructor(
     private settings: SettingsService,
-    // private notifier: NotificationsService,
-    @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
+    private notifier: NotificationsService,
+    // @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
   ) {
     this.onCurrencyChange(CURRENCY_SYMBOL.USD);
   }
 
   onCurrencyChange(currency: CURRENCY_SYMBOL) {
     this.settings.changeCurrency(currency);
-    // this.notifier.notify(`Currency changed to ${currency}`);
-    this.dispatcher.dispatch(new CurrencyChangedEvent(currency));
+    this.notifier.notify(`Currency changed to ${currency}`);
+    // this.dispatcher.dispatch(new CurrencyChangedEvent(currency));
   }
 }

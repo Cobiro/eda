@@ -9,13 +9,9 @@ import {NotificationsService} from "./notifications.service";
     </mat-select>
   `,
 })
-export class NotificationsComponent implements OnInit {
+export class NotificationsComponent {
 
   notifications$ = this.notificationService.data$;
 
   constructor(private notificationService: NotificationsService) { }
-
-  ngOnInit(): void {
-  }
-
 }
