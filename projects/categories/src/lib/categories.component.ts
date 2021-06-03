@@ -5,6 +5,7 @@ import {Dispatcher} from "../../../application-bus/src/lib/dispatcher";
 import {AppEvent} from "../../../application-bus/src/lib/application.event";
 import {CategorySelectedEvent} from "../../../events/src/lib/category-selected.event";
 import {APPLICATION_BUS} from "../../../application-bus/src/lib/application.bus";
+import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
 
 @Component({
   selector: 'lib-categories',
@@ -21,14 +22,12 @@ export class CategoriesComponent {
 
   constructor(
     private categoryService: CategoriesService,
-    // private notifier: NotificationsService,
-    @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
+    private notifier: NotificationsService,
   ) { }
 
   onCategorySelected($event: MatSelectionListChange) {
     const categoryName = $event.source.selectedOptions.selected[0].value;
     this.categoryService.select(categoryName);
-    // this.notifier.notify(`Selected ${categoryName}`);
-    this.dispatcher.dispatch(new CategorySelectedEvent(categoryName));
+    this.notifier.notify(`Selected ${categoryName}`);
   }
 }

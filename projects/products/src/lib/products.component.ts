@@ -7,6 +7,9 @@ import {APPLICATION_BUS} from "../../../application-bus/src/lib/application.bus"
 import {Dispatcher} from "../../../application-bus/src/lib/dispatcher";
 import {AppEvent} from "../../../application-bus/src/lib/application.event";
 import {ProductAddedEvent} from "../../../events/src/lib/product-added.event";
+import {CategoriesService} from "../../../categories/src/lib/categories.service";
+import {SettingsService} from "../../../settings/src/lib/settings.service";
+import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
 
 @Component({
   selector: 'lib-products',
@@ -43,15 +46,13 @@ import {ProductAddedEvent} from "../../../events/src/lib/product-added.event";
 export class ProductsComponent {
 
   public addProduct = new FormGroup({
-    name: new FormControl(['']),
-    price: new FormControl([0])
+    name: new FormControl([]),
+    price: new FormControl([])
   });
 
-  // public selectedCurrency$ = this.settings.selectedCurrency$;
-  public selectedCurrency$ = this.productService.currency$;
+  public selectedCurrency$ = this.settings.selectedCurrency$;
 
-  // public selectedCategory$ = this.categoryService.selectedCategory$;
-  public selectedCategory$ = this.productService.selectedCategory$;
+  public selectedCategory$ = this.categoryService.selectedCategory$;
 
   categoryProducts$ = combineLatest([
     this.selectedCategory$,
@@ -62,10 +63,9 @@ export class ProductsComponent {
 
   constructor(
     private productService: ProductsService,
-    // private categoryService: CategoriesService,
-    // private settings: SettingsService,
-    // private notifier: NotificationsService
-    @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
+    private categoryService: CategoriesService,
+    private settings: SettingsService,
+    private notifier: NotificationsService
   ) { }
 
   onFormSubmit(categoryId: string, currentProductCount: number, currency: string) {
@@ -74,9 +74,8 @@ export class ProductsComponent {
     if (productName && productPrice) {
       this.productService.add(productName, productPrice, categoryId);
       this.addProduct.reset();
-      // this.categoryService.setProductCount(currentProductCount+1, categoryId);
-      // this.notifier.notify(`Added ${productName} ${currency}${productPrice}`);
-      this.dispatcher.dispatch(new ProductAddedEvent(productName, productPrice, currency));
+      this.categoryService.setProductCount(currentProductCount+1, categoryId);
+      this.notifier.notify(`Added ${productName} ${currency}${productPrice}`);
     }
   }
 
