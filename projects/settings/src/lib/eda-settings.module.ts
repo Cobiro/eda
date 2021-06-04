@@ -2,22 +2,23 @@ import {NgModule} from '@angular/core';
 import {SettingsComponent} from './settings.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {CommonModule} from "@angular/common";
+import {EDASettingsComponent} from "./eda-settings.component";
 import {SettingsService} from "./settings.service";
 
 
 @NgModule({
   declarations: [
-    SettingsComponent
+    EDASettingsComponent
   ],
   imports: [
     CommonModule,
     MatButtonToggleModule
   ],
   exports: [
-    SettingsComponent
+    EDASettingsComponent
   ],
   providers: [
     SettingsService
   ]
 })
-export class SettingsModule { }
+export class EDASettingsModule { }

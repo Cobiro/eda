@@ -1,0 +1,27 @@
+<ng-container *ngIf="selectedCategory$ | async as selectedCategory">
+  <ng-container *ngIf="categoryProducts$ | async as categoryProducts">
+    <ng-container *ngIf="selectedCurrency$ | async as selectedCurrency">
+      <h3>{{selectedCategory.name}} products</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let product of categoryProducts">{{product.name}} {{selectedCurrency}}{{product.price}}</mat-list-item>
+      </mat-list>
+      <h3>Add new product</h3>
+      <form [formGroup]="addProduct" (ngSubmit)="onFormSubmit(selectedCategory.name, categoryProducts.length, selectedCurrency)">
+        <p>
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input [formControlName]="'name'" type="text" matInput/>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-label>Price</mat-label>
+            <span matPrefix>{{selectedCurrency}}&nbsp;</span>
+            <input matInput [formControlName]="'price'" type="number"/>
+          </mat-form-field>
+        </p>
+        <button type="submit" mat-raised-button color="primary">Add</button>
+      </form>
+    </ng-container>
+  </ng-container>
+</ng-container>

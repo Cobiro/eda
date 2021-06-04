@@ -10,24 +10,31 @@ import {NotificationsModule} from "../../projects/notifications/src/lib/notifica
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import {ApplicationBusModule} from "../../projects/application-bus/src/lib/application-bus.module";
-import {provideApplicationEventHandler} from "../../projects/application-bus/src/lib/provide-application-event-handler";
-import {CategorySelectedEventHandler} from "../../projects/notifications/src/lib/event-handlers/category-selected.event-handler";
 import {TokenBasedApplicationEventHandlerRegistry} from "../../projects/application-bus/src/lib/token-based-application-event-handler.registry";
+import {EDACategoriesModule} from "../../projects/categories/src/lib/eda-categories.module";
+import {EDASettingsComponent} from "../../projects/settings/src/lib/eda-settings.component";
+import {EDAProductsComponent} from "../../projects/products/src/lib/eda-products.component";
+import {EDASettingsModule} from "../../projects/settings/src/lib/eda-settings.module";
+import {EDAProductsModule} from "../../projects/products/src/lib/eda-products.module";
+import { EdaComponent } from './eda/eda.component';
+import {AppRoutingModule} from "./app.routing";
+import { StandardComponent } from './standard/standard.component';
+import {RouterModule} from "@angular/router";
+import {MatButtonModule} from "@angular/material/button";
+import {StandardModule} from "./standard/standard.module";
+import {EDAModule} from "./eda/eda.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    CategoriesModule,
-    SettingsModule,
-    ProductsModule,
-    NotificationsModule,
-    MatToolbarModule,
-    MatCardModule,
-    ApplicationBusModule.forRoot()
+    MatButtonModule,
+    AppRoutingModule,
+    RouterModule,
+    StandardModule,
+    EDAModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

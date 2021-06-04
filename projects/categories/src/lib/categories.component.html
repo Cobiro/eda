@@ -1,0 +1,4 @@
+<h2>Your categories</h2>
+<mat-selection-list [multiple]="false" (selectionChange)="onCategorySelected($event)">
+  <mat-list-option *ngFor="let category of categories$ | async" [value]="category.name" [matBadge]="category.productCount">{{category.name}}</mat-list-option>
+</mat-selection-list>

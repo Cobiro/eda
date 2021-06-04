@@ -7,9 +7,7 @@ export enum CURRENCY_SYMBOL {
   GBR = '£'
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SettingsService {
 
   private selectedCurrency = new ReplaySubject<CURRENCY_SYMBOL>(1);

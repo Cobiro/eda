@@ -7,23 +7,23 @@ import {CurrencyChangedEvent} from "../../../events/src/lib/currency-changed.eve
 import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
 
 @Component({
-  selector: 'lib-settings',
+  selector: 'lib-eda-settings',
   templateUrl: 'settings.component.html',
 })
-export class SettingsComponent {
+export class EDASettingsComponent {
 
   public currencies$ = this.settings.currencies$;
   public selectedCurrency$ = this.settings.selectedCurrency$;
 
   constructor(
     private settings: SettingsService,
-    private notifier: NotificationsService
+    @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<CurrencyChangedEvent>
   ) {
-    this.settings.changeCurrency(CURRENCY_SYMBOL.USD);
+    this.onCurrencyChange(CURRENCY_SYMBOL.USD);
   }
 
   onCurrencyChange(currency: CURRENCY_SYMBOL) {
     this.settings.changeCurrency(currency);
-    this.notifier.notify(`Currency changed to ${currency}`);
+    this.dispatcher.dispatch(new CurrencyChangedEvent(currency));
   }
 }

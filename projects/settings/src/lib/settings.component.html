@@ -1,0 +1,4 @@
+<h2>Currency settings</h2>
+<mat-button-toggle-group [value]="selectedCurrency$ | async" (change)="onCurrencyChange($event.value)">
+  <mat-button-toggle [value]="currency" *ngFor="let currency of currencies$ | async">{{currency}}</mat-button-toggle>
+</mat-button-toggle-group>

@@ -1,17 +1,5 @@
-<mat-toolbar>
-  <span class="spacer"></span>
-  <lib-notifications></lib-notifications>
-</mat-toolbar>
-<main style="display: flex; flex-direction: row">
-<section style="width: 50%; padding: 10px;">
-  <mat-card>
-    <lib-categories></lib-categories>
-    <lib-products></lib-products>
-  </mat-card>
-</section>
-<section style="width: 50%; padding: 10px;">
-  <mat-card>
-    <lib-settings></lib-settings>
-  </mat-card>
-</section>
-</main>
+<h1>Welcome to EDA example!</h1>
+<p>Click below on one of the links to see functionality of a standard or EDA architectrure. You should see that functionally there is not much of a difference, but code and architecture wise, there is a big difference! Just try to remove smart component from either standard/standard.component.html or eda/eda.component.html to see for yourself ;) Which component does actually break? :)</p>
+<a mat-raised-button [routerLink]="'standard'">Standard architecture</a>
+<a mat-raised-button [routerLink]="'eda'">EDA architecture</a>
+<router-outlet></router-outlet>

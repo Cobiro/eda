@@ -9,7 +9,7 @@ export interface Product {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class ProductsService {
 
@@ -34,7 +34,7 @@ export class ProductsService {
   setCurrency(currency: string): void {
     this.currencySubject.next(currency);
   }
-  get currency$(): Observable<string> {
+  get selectedCurrency$(): Observable<string> {
     return this.currencySubject.asObservable();
   }
 }

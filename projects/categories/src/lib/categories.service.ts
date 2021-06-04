@@ -7,7 +7,7 @@ export interface Category {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "any"
 })
 export class CategoriesService {
   private categoriesSubject = new BehaviorSubject<Category[]>([

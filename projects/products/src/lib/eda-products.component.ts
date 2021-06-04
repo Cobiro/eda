@@ -12,19 +12,19 @@ import {SettingsService} from "../../../settings/src/lib/settings.service";
 import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
 
 @Component({
-  selector: 'lib-products',
+  selector: 'lib-eda-products',
   templateUrl: 'products.component.html',
 })
-export class ProductsComponent {
+export class EDAProductsComponent {
 
   public addProduct = new FormGroup({
     name: new FormControl([]),
     price: new FormControl([])
   });
 
-  public selectedCurrency$ = this.settings.selectedCurrency$;
+  public selectedCurrency$ = this.productService.selectedCurrency$;
 
-  public selectedCategory$ = this.categoryService.selectedCategory$;
+  public selectedCategory$ = this.productService.selectedCategory$;
 
   categoryProducts$ = combineLatest([
     this.selectedCategory$,
@@ -35,9 +35,7 @@ export class ProductsComponent {
 
   constructor(
     private productService: ProductsService,
-    private categoryService: CategoriesService,
-    private settings: SettingsService,
-    private notifier: NotificationsService
+    @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<ProductAddedEvent>
   ) { }
 
   onFormSubmit(categoryId: string, currentProductCount: number, currency: string) {
@@ -46,8 +44,7 @@ export class ProductsComponent {
     if (productName && productPrice) {
       this.productService.add(productName, productPrice, categoryId);
       this.addProduct.reset();
-      this.categoryService.setProductCount(currentProductCount+1, categoryId);
-      this.notifier.notify(`Added ${productName} ${currency}${productPrice}`);
+      this.dispatcher.dispatch(new ProductAddedEvent(productName, productPrice, currency, currentProductCount, categoryId))
     }
   }
 

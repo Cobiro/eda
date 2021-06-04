@@ -8,22 +8,21 @@ import {APPLICATION_BUS} from "../../../application-bus/src/lib/application.bus"
 import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
 
 @Component({
-  selector: 'lib-categories',
+  selector: 'lib-eda-categories',
   templateUrl: 'categories.component.html',
-  providers: [CategoriesService]
 })
-export class CategoriesComponent {
+export class EDACategoriesComponent {
 
   public categories$ = this.categoryService.categories$;
 
   constructor(
     private categoryService: CategoriesService,
-    private notifier: NotificationsService,
+    @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<CategorySelectedEvent>
   ) { }
 
   onCategorySelected($event: MatSelectionListChange) {
     const categoryName = $event.source.selectedOptions.selected[0].value;
     this.categoryService.select(categoryName);
-    this.notifier.notify(`Selected ${categoryName}`);
+    this.dispatcher.dispatch(new CategorySelectedEvent(categoryName));
   }
 }
