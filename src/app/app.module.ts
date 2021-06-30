@@ -16,6 +16,7 @@ import {TokenBasedApplicationEventHandlerRegistry} from "../../projects/applicat
 import {StoreModule} from "@ngrx/store";
 import {NgrxCategoriesModule} from "../../projects/ngrx-categories/src/lib/ngrx-categories.module";
 import {NgrxProductsModule} from "../../projects/ngrx-products/src/lib/ngrx-products.module";
+import {NgrxNotificationsModule} from "../../projects/ngrx-notifications/src/lib/ngrx-notifications.module";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {NgrxProductsModule} from "../../projects/ngrx-products/src/lib/ngrx-prod
     ApplicationBusModule.forRoot(),
     StoreModule.forRoot({}),
     NgrxCategoriesModule,
-    NgrxProductsModule
+    NgrxProductsModule,
+    NgrxNotificationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

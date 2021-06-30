@@ -4,7 +4,7 @@ import {CommonModule} from "@angular/common";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
 import {StoreModule} from "@ngrx/store";
-import * as fromProducts from "./store/products.selector";
+import * as fromProducts from "./store";
 
 
 
