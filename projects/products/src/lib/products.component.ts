@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {ProductsService} from "./products.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {combineLatest} from "rxjs";
-import {map} from "rxjs/operators";
+import {map, tap} from "rxjs/operators";
 import {APPLICATION_BUS} from "../../../application-bus/src/lib/application.bus";
 import {Dispatcher} from "../../../application-bus/src/lib/dispatcher";
 import {AppEvent} from "../../../application-bus/src/lib/application.event";
@@ -46,15 +46,13 @@ import {NotificationsService} from "../../../notifications/src/lib/notifications
 export class ProductsComponent {
 
   public addProduct = new FormGroup({
-    name: new FormControl(['']),
-    price: new FormControl([0])
+    name: new FormControl([]),
+    price: new FormControl([])
   });
 
   public selectedCurrency$ = this.settings.selectedCurrency$;
-  // public selectedCurrency$ = this.productService.currency$;
 
   public selectedCategory$ = this.categoryService.selectedCategory$;
-  // public selectedCategory$ = this.productService.selectedCategory$;
 
   categoryProducts$ = combineLatest([
     this.selectedCategory$,
@@ -68,7 +66,6 @@ export class ProductsComponent {
     private categoryService: CategoriesService,
     private settings: SettingsService,
     private notifier: NotificationsService
-    // @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
   ) { }
 
   onFormSubmit(categoryId: string, currentProductCount: number, currency: string) {
@@ -79,7 +76,6 @@ export class ProductsComponent {
       this.addProduct.reset();
       this.categoryService.setProductCount(currentProductCount+1, categoryId);
       this.notifier.notify(`Added ${productName} ${currency}${productPrice}`);
-      // this.dispatcher.dispatch(new ProductAddedEvent(productName, productPrice, currency));
     }
   }
 

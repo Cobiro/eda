@@ -14,4 +14,5 @@ export class NotificationsComponent {
   notifications$ = this.notificationService.data$;
 
   constructor(private notificationService: NotificationsService) { }
+
 }

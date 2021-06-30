@@ -23,13 +23,11 @@ export class CategoriesComponent {
   constructor(
     private categoryService: CategoriesService,
     private notifier: NotificationsService,
-    // @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
   ) { }
 
   onCategorySelected($event: MatSelectionListChange) {
     const categoryName = $event.source.selectedOptions.selected[0].value;
     this.categoryService.select(categoryName);
     this.notifier.notify(`Selected ${categoryName}`);
-    // this.dispatcher.dispatch(new CategorySelectedEvent(categoryName));
   }
 }

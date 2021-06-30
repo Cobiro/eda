@@ -22,15 +22,13 @@ export class SettingsComponent {
 
   constructor(
     private settings: SettingsService,
-    private notifier: NotificationsService,
-    // @Inject(APPLICATION_BUS) private dispatcher: Dispatcher<AppEvent>
+    private notifier: NotificationsService
   ) {
-    this.onCurrencyChange(CURRENCY_SYMBOL.USD);
+    this.settings.changeCurrency(CURRENCY_SYMBOL.USD);
   }
 
   onCurrencyChange(currency: CURRENCY_SYMBOL) {
     this.settings.changeCurrency(currency);
     this.notifier.notify(`Currency changed to ${currency}`);
-    // this.dispatcher.dispatch(new CurrencyChangedEvent(currency));
   }
 }
