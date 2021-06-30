@@ -13,6 +13,9 @@ import {ApplicationBusModule} from "../../projects/application-bus/src/lib/appli
 import {provideApplicationEventHandler} from "../../projects/application-bus/src/lib/provide-application-event-handler";
 import {CategorySelectedEventHandler} from "../../projects/notifications/src/lib/event-handlers/category-selected.event-handler";
 import {TokenBasedApplicationEventHandlerRegistry} from "../../projects/application-bus/src/lib/token-based-application-event-handler.registry";
+import {StoreModule} from "@ngrx/store";
+import {NgrxCategoriesModule} from "../../projects/ngrx-categories/src/lib/ngrx-categories.module";
+import {NgrxProductsModule} from "../../projects/ngrx-products/src/lib/ngrx-products.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import {TokenBasedApplicationEventHandlerRegistry} from "../../projects/applicat
     NotificationsModule,
     MatToolbarModule,
     MatCardModule,
-    ApplicationBusModule.forRoot()
+    ApplicationBusModule.forRoot(),
+    StoreModule.forRoot({}),
+    NgrxCategoriesModule,
+    NgrxProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
