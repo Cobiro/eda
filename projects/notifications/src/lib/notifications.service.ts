@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 
-export interface Notifiction {
+export interface Notification {
   text: string;
 }
 
@@ -9,13 +9,13 @@ export interface Notifiction {
   providedIn: 'root'
 })
 export class NotificationsService {
-  private subject = new BehaviorSubject<Notifiction[]>([]);
+  private subject = new BehaviorSubject<Notification[]>([]);
 
   public notify(text: string): void {
     this.subject.next([...this.subject.getValue(), { text }]);
   }
 
-  get data$(): Observable<Notifiction[]> {
+  get data$(): Observable<Notification[]> {
     return this.subject.asObservable();
   }
 }

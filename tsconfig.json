@@ -15,6 +15,18 @@
         "dist/events/events",
         "dist/events"
       ],
+      "ngrx-categories": [
+        "dist/ngrx-categories/ngrx-categories",
+        "dist/ngrx-categories"
+      ],
+      "ngrx-notifications": [
+        "dist/ngrx-notifications/ngrx-notifications",
+        "dist/ngrx-notifications"
+      ],
+      "ngrx-products": [
+        "dist/ngrx-products/ngrx-products",
+        "dist/ngrx-products"
+      ],
       "notifications": [
         "dist/notifications/notifications",
         "dist/notifications"

@@ -11,8 +11,8 @@ export interface Category {
 })
 export class CategoriesService {
   private categoriesSubject = new BehaviorSubject<Category[]>([
-    { name: 'Shoes', productCount: 0},
-    { name: 'Jackets', productCount: 0}
+    { name: 'Shoes', productCount: 0 },
+    { name: 'Jackets', productCount: 0 }
   ]);
   private selectedCategorySubject = new ReplaySubject<Category>(1);
 
