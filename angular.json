@@ -355,6 +355,37 @@
           }
         }
       }
+    },
+    "ngrx-notifications": {
+      "projectType": "library",
+      "root": "projects/ngrx-notifications",
+      "sourceRoot": "projects/ngrx-notifications/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngrx-notifications/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngrx-notifications/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngrx-notifications/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngrx-notifications/src/test.ts",
+            "tsConfig": "projects/ngrx-notifications/tsconfig.spec.json",
+            "karmaConfig": "projects/ngrx-notifications/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "eda"
