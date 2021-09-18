@@ -22,6 +22,9 @@
     "categories": { "implicitDependencies": [] },
     "notifications": { "implicitDependencies": [] },
     "products": { "implicitDependencies": [] },
-    "settings": { "implicitDependencies": [] }
+    "settings": { "implicitDependencies": [] },
+    "ngrx-products": { "implicitDependencies": [] },
+    "ngrx-categories": { "implicitDependencies": [] },
+    "ngrx-notifications": { "implicitDependencies": [] }
   }
 }
