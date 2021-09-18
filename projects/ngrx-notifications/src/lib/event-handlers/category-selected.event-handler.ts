@@ -11,7 +11,6 @@ export class CategorySelectedEventHandler implements ApplicationEventHandler {
   constructor(private store: Store) {}
 
   handle(event: CategorySelectedEvent) {
-    console.log('he;;p');
     this.store.dispatch(notify({notification: {text: `Selected ${event.categoryName}`}}));
   }
 }

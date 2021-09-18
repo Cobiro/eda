@@ -7,8 +7,7 @@ import {NgrxProductsModule} from "../../../projects/ngrx-products/src/lib/ngrx-p
 import {NgrxCategoriesModule} from "../../../projects/ngrx-categories/src/lib/ngrx-categories.module";
 import {MatCardModule} from "@angular/material/card";
 import {NgrxNotificationsModule} from "../../../projects/ngrx-notifications/src/lib/ngrx-notifications.module";
-
-
+import {AddProductFormModule} from "../../../projects/shared/add-product-form/src/lib/add-product-form.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +21,8 @@ import {NgrxNotificationsModule} from "../../../projects/ngrx-notifications/src/
     SettingsModule,
     NgrxProductsModule,
     NgrxCategoriesModule,
-    SettingsModule
+    SettingsModule,
+    AddProductFormModule
   ]
 })
 export class NgrxModule { }

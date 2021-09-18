@@ -3,6 +3,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "@shared/add-product-form": [
+        "dist/shared/add-product-form/shared-add-product-form",
+        "dist/shared/add-product-form"
+      ],
       "application-bus": [
         "dist/application-bus/application-bus",
         "dist/application-bus"
