@@ -16,7 +16,11 @@ import {TokenBasedApplicationEventHandlerRegistry} from "../../projects/applicat
 import {StoreModule} from "@ngrx/store";
 import {NgrxCategoriesModule} from "../../projects/ngrx-categories/src/lib/ngrx-categories.module";
 import {NgrxProductsModule} from "../../projects/ngrx-products/src/lib/ngrx-products.module";
-import {NgrxNotificationsModule} from "../../projects/ngrx-notifications/src/lib/ngrx-notifications.module";
+import {RouterModule} from "@angular/router";
+import {AppRoutingModule} from "./app.routing";
+import {StandardModule} from "../pages/standard/standard.module";
+import {NgrxModule} from "../pages/ngrx/ngrx.module";
+import {EffectsModule} from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -25,17 +29,12 @@ import {NgrxNotificationsModule} from "../../projects/ngrx-notifications/src/lib
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    CategoriesModule,
-    SettingsModule,
-    ProductsModule,
-    NotificationsModule,
-    MatToolbarModule,
-    MatCardModule,
     ApplicationBusModule.forRoot(),
     StoreModule.forRoot({}),
-    NgrxCategoriesModule,
-    NgrxProductsModule,
-    NgrxNotificationsModule
+    EffectsModule.forRoot(),
+    AppRoutingModule,
+    StandardModule,
+    NgrxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

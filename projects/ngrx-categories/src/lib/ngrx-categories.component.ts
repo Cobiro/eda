@@ -3,9 +3,8 @@ import {Store} from "@ngrx/store";
 import {MatSelectionListChange} from "@angular/material/list";
 import {Observable} from "rxjs";
 import {Category} from "../../../categories/src/lib/categories.service";
-import * as fromCategories from "./store";
-import {selectCategory} from "../../../ngrx-products/src/lib/store";
-import {notify} from "../../../ngrx-notifications/src/lib/store";
+import * as fromCategories from "./store/categories.selector";
+import {selectCategory} from "../../../ngrx-products/src/lib/store/select-category.action";
 
 @Component({
   selector: 'lib-ngrx-categories',
@@ -25,7 +24,6 @@ export class NgrxCategoriesComponent implements OnInit {
   onCategorySelected($event: MatSelectionListChange) {
     const categoryName = $event.source.selectedOptions.selected[0].value;
     this.store.dispatch(selectCategory({categoryName}));
-    this.store.dispatch(notify({ message: ` ${categoryName} category selected` }));
   }
 
 }

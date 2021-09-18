@@ -9,21 +9,9 @@ import {EffectsModule} from "@ngrx/effects";
 import {ProductsEffects} from "./store/products.effects";
 import {ProductsEDAEffects} from "./store/products.eda.effects";
 
-
-
 @NgModule({
-  declarations: [
-    NgrxProductsComponent
-  ],
   imports: [
-    CommonModule,
-    MatListModule,
-    MatButtonModule,
-    StoreModule.forFeature(fromProducts.productsFeatureKey, fromProducts.reducer),
     EffectsModule.forFeature([ProductsEDAEffects])
   ],
-  exports: [
-    NgrxProductsComponent
-  ]
 })
-export class NgrxProductsModule { }
+export class NgrxProductsEDAModule { }

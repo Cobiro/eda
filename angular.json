@@ -386,6 +386,37 @@
           }
         }
       }
+    },
+    "@shared/add-product-form": {
+      "projectType": "library",
+      "root": "projects/shared/add-product-form",
+      "sourceRoot": "projects/shared/add-product-form/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/shared/add-product-form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/shared/add-product-form/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/shared/add-product-form/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shared/add-product-form/src/test.ts",
+            "tsConfig": "projects/shared/add-product-form/tsconfig.spec.json",
+            "karmaConfig": "projects/shared/add-product-form/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "eda"

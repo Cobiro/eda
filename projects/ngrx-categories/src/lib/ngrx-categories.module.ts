@@ -15,7 +15,7 @@ import {CommonModule} from "@angular/common";
     CommonModule,
     MatListModule,
     MatBadgeModule,
-    StoreModule.forFeature(fromCategories.categoriesFeatureKey, fromCategories.reducer)
+    StoreModule.forFeature(fromCategories.categoriesFeatureKey, fromCategories.reducer),
   ],
   exports: [
     NgrxCategoriesComponent
