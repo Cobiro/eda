@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {ApplicationEventHandler} from "../../../../application-bus/src/lib/application-event.handler";
 import {CategorySelectedEvent} from "../../../../events/src/lib/category-selected.event";
 import {NotificationsService} from "../notifications.service";
+import {ApplicationEventHandler} from "@cobiro/eda";
 
 @Injectable()
 export class CategorySelectedEventHandler implements ApplicationEventHandler {

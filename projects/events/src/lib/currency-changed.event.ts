@@ -1,6 +1,6 @@
-import {AppEvent} from "../../../application-bus/src/lib/application.event";
+import {ApplicationEvent} from "@cobiro/eda";
 
-export class CurrencyChangedEvent extends AppEvent {
+export class CurrencyChangedEvent extends ApplicationEvent {
   constructor(public readonly currencySymbol: string) {
     super();
   }

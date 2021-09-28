@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {ApplicationEventHandler} from "../../../../application-bus/src/lib/application-event.handler";
 import {CurrencyChangedEvent} from "../../../../events/src/lib/currency-changed.event";
 import {ProductsService} from "../products.service";
+import {ApplicationEventHandler} from "@cobiro/eda";
 
 @Injectable()
 export class CurrencyChangedEventHandler implements ApplicationEventHandler {

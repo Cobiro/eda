@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Observable} from "rxjs";
 import {selectNotifications} from "./store/notifications.selector";
 import {Store} from "@ngrx/store";
-import {Notifiction} from "../../../notifications/src/lib/notifications.service";
+import {Notification} from "../../../notifications/src/lib/notifications.service";
 
 @Component({
   selector: 'lib-ngrx-notifications',
@@ -17,7 +17,7 @@ import {Notifiction} from "../../../notifications/src/lib/notifications.service"
 export class NgrxNotificationsComponent {
 
   // @ts-ignore
-  notifications$: Observable<{ notifications: Notifiction[] }> = this.store.select(selectNotifications)
+  notifications$: Observable<{ notifications: Notification[] }> = this.store.select(selectNotifications)
 
   constructor(private store: Store) { }
 
