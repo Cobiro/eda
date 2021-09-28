@@ -1,27 +1,93 @@
-# Eda
+# Cobiro Event Driven Architectures ( EDA )
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+This repository contains many examples of usage EDA (**[@cobiro/eda](https://www.npmjs.com/package/@cobiro/eda)**) with Angular and NGRX.
 
-## Development server
+## How to use
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install package
 
-## Code scaffolding
+`npm install @cobiro/eda`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add ApplicationModule and TokenBasedApplicationEventHandlerRegistry to your module
+```ts
+import {ApplicationBusModule, TokenBasedApplicationEventHandlerRegistry} from "@cobiro/eda";
 
-## Build
+@NgModule({ 
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    ApplicationBusModule.forRoot(),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot(),
+    AppRoutingModule,
+    StandardModule,
+    NgrxModule
+  ],
+ providers: [],
+ bootstrap: [AppComponent]
+})
+export class AppModule {
+  constructor(private registry: TokenBasedApplicationEventHandlerRegistry) {
+    this.registry.init();
+  }
+}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Create ApplicationEvent
 
-## Running unit tests
+```ts
+import {ApplicationEvent} from "@cobiro/eda";
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+export class ProductAddedEvent extends ApplicationEvent {
+  constructor(public readonly name: string, public readonly price: number, public readonly currency: string) {
+    super();
+  }
+}
+```
 
-## Running end-to-end tests
+Dispatch event in your application
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```ts
+import {APPLICATION_BUS, Dispatcher} from "@cobiro/eda";
+import {ProductAddedEvent} from "./product-added.event";
+import {Product} from "./products.service";
 
-## Further help
+export class ProductsComponent {
+  constructor(
+    @Inject(APPLICATION_BUS) private _applicationBus: Dispatcher<ProductAddedEvent>
+  ) {
+  }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  onProductAddClicked(product: Product): void {
+      this._applicationBus.dispatch(new ProductAddedEvent(product.name, product.price, product.currency));
+  }
+}
+```
+
+Create ApplicationEventHandler and provide it into your module when you want to handle it:
+
+```ts
+import {NotificationsService} from "../notifications.service";
+import {ProductAddedEvent} from "../../../../events/src/lib/product-added.event";
+import {ApplicationEventHandler} from "@cobiro/eda";
+
+@Injectable()
+export class ProductAddedEventHandler implements ApplicationEventHandler {
+  eventClass = ProductAddedEvent;
+
+  constructor(private notifyService: NotificationsService) {}
+
+  handle(event: ProductAddedEvent) {
+    this.notifyService.notify(`Added ${event.name} ${event.currency}${event.price}`);
+  }
+}
+
+@NgModule({
+  ...,
+  providers: [
+    provideApplicationEventHandler(ProductAddedEventHandler)
+  ]
+})
+export class NotificationsModule { }
+```

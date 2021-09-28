@@ -1,15 +1,15 @@
 import {Action, createAction, createReducer, on, props} from "@ngrx/store";
-import {Notifiction} from "../../../../notifications/src/lib/notifications.service";
+import {Notification} from "../../../../notifications/src/lib/notifications.service";
 
 export const notificationFeatureKey = 'notifications';
 
 export const notify = createAction(
   '[Notifications] notify',
-  props<{notification: Notifiction}>()
+  props<{notification: Notification}>()
 );
 
 export interface NotificationsState {
-  notifications: Notifiction[];
+  notifications: Notification[];
 }
 
 export const notificationInitialState: NotificationsState = {

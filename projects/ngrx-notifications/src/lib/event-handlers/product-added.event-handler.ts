@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
-import {ApplicationEventHandler} from "../../../../application-bus/src/lib/application-event.handler";
 import {ProductAddedEvent} from "../../../../events/src/lib/product-added.event";
 import {notify} from "../store/notifications.selector";
 import {Store} from "@ngrx/store";
+import {ApplicationEventHandler} from "@cobiro/eda";
 
 @Injectable()
 export class ProductAddedEventHandler implements ApplicationEventHandler {

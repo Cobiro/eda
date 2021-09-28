@@ -6,7 +6,6 @@ import {MatListModule} from "@angular/material/list";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatBadgeModule} from "@angular/material/badge";
 
-
 @NgModule({
   declarations: [
     CategoriesComponent
