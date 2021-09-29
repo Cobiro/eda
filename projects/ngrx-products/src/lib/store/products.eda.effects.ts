@@ -1,9 +1,8 @@
 import {Inject, Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {map, tap} from "rxjs/operators";
-import {Dispatcher} from "../../../../application-bus/src/lib/dispatcher";
 import {CategorySelectedEvent} from "../../../../events/src/lib/category-selected.event";
-import {APPLICATION_BUS} from "../../../../application-bus/src/lib/application.bus";
+import {APPLICATION_BUS, Dispatcher} from "@cobiro/eda";
 
 @Injectable()
 export class ProductsEDAEffects {

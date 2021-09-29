@@ -1,8 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Dispatcher} from "../../../../application-bus/src/lib/dispatcher";
-import {ProductAddedEvent} from "../../../../events/src/lib/product-added.event";
-import {APPLICATION_BUS} from "../../../../application-bus/src/lib/application.bus";
 
 @Component({
   selector: 'lib-add-product-form',
@@ -31,7 +28,8 @@ export class AddProductFormComponent {
     price: new FormControl([])
   });
 
-  constructor() { }
+  constructor() {
+  }
 
   onFormSubmit() {
 

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, of, ReplaySubject} from "rxjs";
+import {Observable, of, ReplaySubject} from "rxjs";
 
 export enum CURRENCY_SYMBOL {
   USD = '$',

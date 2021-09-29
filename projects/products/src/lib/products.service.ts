@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, combineLatest, Observable, ReplaySubject} from "rxjs";
-import {map} from "rxjs/operators";
+import {BehaviorSubject, Observable, ReplaySubject} from "rxjs";
 
 export interface Product {
   name: string;

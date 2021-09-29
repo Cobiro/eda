@@ -1,10 +1,6 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {CategoriesService} from "./categories.service";
 import {MatSelectionListChange} from "@angular/material/list";
-import {Dispatcher} from "../../../application-bus/src/lib/dispatcher";
-import {AppEvent} from "../../../application-bus/src/lib/application.event";
-import {CategorySelectedEvent} from "../../../events/src/lib/category-selected.event";
-import {APPLICATION_BUS} from "../../../application-bus/src/lib/application.bus";
 import {NotificationsService} from "../../../notifications/src/lib/notifications.service";
 
 @Component({

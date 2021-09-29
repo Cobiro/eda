@@ -1,6 +1,6 @@
 {
   "name": "eda",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,8 +20,9 @@
     "@angular/platform-browser": "~12.0.2",
     "@angular/platform-browser-dynamic": "~12.0.2",
     "@angular/router": "~12.0.2",
+    "@cobiro/eda": "0.0.2",
     "@ngrx/effects": "^12.4.0",
-    "@ngrx/store": "^12.2.0",
+    "@ngrx/store": "^12.4.0",
     "@nrwl/workspace": "^12.3.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
@@ -40,6 +41,8 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^12.0.0",
-    "typescript": "~4.2.3"
+    "typescript": "~4.2.3",
+    "prettier": "^2.0.4",
+    "ajv": "^6.9.1 "
   }
 }
