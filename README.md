@@ -8,9 +8,10 @@ Install package
 
 `npm install @cobiro/eda`
 
-Add ApplicationModule and TokenBasedApplicationEventHandlerRegistry to your module
+
+Add ApplicationModule to your module
 ```ts
-import {ApplicationBusModule, TokenBasedApplicationEventHandlerRegistry} from "@cobiro/eda";
+import {ApplicationBusModule} from "@cobiro/eda";
 
 @NgModule({ 
   declarations: [AppComponent],
@@ -27,11 +28,7 @@ import {ApplicationBusModule, TokenBasedApplicationEventHandlerRegistry} from "@
  providers: [],
  bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(private registry: TokenBasedApplicationEventHandlerRegistry) {
-    this.registry.init();
-  }
-}
+export class AppModule {}
 ```
 
 Create ApplicationEvent
@@ -73,12 +70,14 @@ import {ProductAddedEvent} from "../../../../events/src/lib/product-added.event"
 import {ApplicationEventHandler} from "@cobiro/eda";
 
 @Injectable()
-export class ProductAddedEventHandler implements ApplicationEventHandler {
-  eventClass = ProductAddedEvent;
+export class ProductAddedEventsHandler implements ApplicationEventsHandler {
+  eventsClasses = [ProductAddedEvent];
+  strategy = ongoingEventsOrchestrationStrategy;
 
-  constructor(private notifyService: NotificationsService) {}
+  constructor(private readonly layoutState: LayoutState) {}
 
-  handle(event: ProductAddedEvent) {
+  handle(events: ProductAddedEvent[]) {
+    const event = events[0];
     this.notifyService.notify(`Added ${event.name} ${event.currency}${event.price}`);
   }
 }
@@ -86,7 +85,7 @@ export class ProductAddedEventHandler implements ApplicationEventHandler {
 @NgModule({
   ...,
   providers: [
-    provideApplicationEventHandler(ProductAddedEventHandler)
+    provideApplicationEventsHandler(ProductAddedEventHandler)
   ]
 })
 export class NotificationsModule { }
