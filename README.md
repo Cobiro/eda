@@ -90,3 +90,10 @@ export class ProductAddedEventsHandler implements ApplicationEventsHandler {
 })
 export class NotificationsModule { }
 ```
+## Strategies
+In events handler you can use different various of strategy to orchestrate events.
+
+- **ongoingEventsOrchestrationStrategy**  - it's default strategy will orchestrate events one by one
+- **allEventsOnceOrchestrationStrategy** - orchestrate all the events at the same time
+- **zipEventsOrchestrationStrategy** - after all events are dispatched
+- **limitedOngoingEventsOrchestrationStrategy** - can handle two events when first event is starting event and second is canceling event, when the canceling event is dispatched handler stops listening to events
