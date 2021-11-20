@@ -9,7 +9,7 @@ Install package
 `npm install @cobiro/eda`
 
 
-Add ApplicationModule to your module
+Add ApplicationBusModule to your module
 ```ts
 import {ApplicationBusModule} from "@cobiro/eda";
 
